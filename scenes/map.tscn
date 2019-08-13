@@ -1,34 +1,841 @@
 [gd_scene load_steps=5 format=2]
 
-[ext_resource path="res://assets/crystal.png" type="Texture" id=1]
+[ext_resource path="res://scenes/obsidian.tscn" type="PackedScene" id=1]
+[ext_resource path="res://scenes/obelisk.tscn" type="PackedScene" id=2]
+[ext_resource path="res://scenes/elemental.tscn" type="PackedScene" id=3]
+[ext_resource path="res://scenes/area.tscn" type="PackedScene" id=4]
 
-[sub_resource type="ConvexPolygonShape2D" id=1]
-points = PoolVector2Array( 0, 38, 16, 32, 32, 38, 32, 46, 27, 50, 16, 54, 6, 50, 0, 46 )
+[node name="Map" type="Node2D"]
 
-[sub_resource type="GDScript" id=2]
+[node name="YSort" type="YSort" parent="."]
 
-[sub_resource type="TileSet" id=3]
-0/name = "crystal"
-0/texture = ExtResource( 1 )
-0/tex_offset = Vector2( 0, 0 )
-0/modulate = Color( 1, 1, 1, 1 )
-0/region = Rect2( 0, 0, 32, 54 )
-0/tile_mode = 0
-0/occluder_offset = Vector2( 0, 0 )
-0/navigation_offset = Vector2( 0, 0 )
-0/shapes = [ {
-"autotile_coord": Vector2( 0, 0 ),
-"one_way": false,
-"one_way_margin": 1.0,
-"shape": SubResource( 1 ),
-"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
-} ]
-0/z_index = 0
-script = SubResource( 2 )
+[node name="obsidian45" parent="YSort" instance=ExtResource( 1 )]
+position = Vector2( 256, -144 )
 
-[node name="Node2D" type="TileMap"]
-mode = 1
-tile_set = SubResource( 3 )
-cell_size = Vector2( 32, 32 )
-format = 1
-tile_data = PoolIntArray( -1572862, 0, 0, -1572861, 0, 0, -1572860, 0, 0, -1572859, 0, 0, -1507328, 0, 0, -1507327, 0, 0, -1507326, 0, 0, -1507325, 0, 0, -1507324, 0, 0, -1507322, 0, 0, -1507321, 0, 0, -1507318, 0, 0, -1507317, 0, 0, -1507316, 0, 0, -1376259, 0, 0, -1376258, 0, 0, -1376257, 0, 0, -1441792, 0, 0, -1441791, 0, 0, -1441790, 0, 0, -1441789, 0, 0, -1441788, 0, 0, -1441787, 0, 0, -1441786, 0, 0, -1441784, 0, 0, -1441783, 0, 0, -1441782, 0, 0, -1441781, 0, 0, -1441780, 0, 0, -1441779, 0, 0, -1310725, 0, 0, -1310724, 0, 0, -1310723, 0, 0, -1310722, 0, 0, -1310721, 0, 0, -1376256, 0, 0, -1376255, 0, 0, -1376254, 0, 0, -1376253, 0, 0, -1376252, 0, 0, -1376251, 0, 0, -1376250, 0, 0, -1376249, 0, 0, -1376247, 0, 0, -1376246, 0, 0, -1376245, 0, 0, -1376244, 0, 0, -1376242, 0, 0, -1245190, 0, 0, -1245189, 0, 0, -1245188, 0, 0, -1245187, 0, 0, -1245186, 0, 0, -1245185, 0, 0, -1310720, 0, 0, -1310719, 0, 0, -1310718, 0, 0, -1310717, 0, 0, -1310716, 0, 0, -1310715, 0, 0, -1310714, 0, 0, -1310713, 0, 0, -1310712, 0, 0, -1310711, 0, 0, -1310710, 0, 0, -1310709, 0, 0, -1310708, 0, 0, -1310707, 0, 0, -1310705, 0, 0, -1310704, 0, 0, -1179655, 0, 0, -1179654, 0, 0, -1179653, 0, 0, -1179652, 0, 0, -1179651, 0, 0, -1179650, 0, 0, -1179649, 0, 0, -1245184, 0, 0, -1245183, 0, 0, -1245182, 0, 0, -1245181, 0, 0, -1245180, 0, 0, -1245179, 0, 0, -1245178, 0, 0, -1245177, 0, 0, -1245176, 0, 0, -1245175, 0, 0, -1245174, 0, 0, -1245173, 0, 0, -1245172, 0, 0, -1245171, 0, 0, -1245170, 0, 0, -1245169, 0, 0, -1245168, 0, 0, -1245167, 0, 0, -1114121, 0, 0, -1114120, 0, 0, -1114119, 0, 0, -1114118, 0, 0, -1114117, 0, 0, -1114116, 0, 0, -1114115, 0, 0, -1114114, 0, 0, -1114113, 0, 0, -1179648, 0, 0, -1179647, 0, 0, -1179646, 0, 0, -1179645, 0, 0, -1179644, 0, 0, -1179642, 0, 0, -1179641, 0, 0, -1179640, 0, 0, -1179639, 0, 0, -1179638, 0, 0, -1179637, 0, 0, -1179636, 0, 0, -1179635, 0, 0, -1179634, 0, 0, -1179633, 0, 0, -1179632, 0, 0, -1179630, 0, 0, -1048586, 0, 0, -1048585, 0, 0, -1048584, 0, 0, -1048583, 0, 0, -1048582, 0, 0, -1048581, 0, 0, -1048580, 0, 0, -1048579, 0, 0, -1048578, 0, 0, -1048577, 0, 0, -1114112, 0, 0, -1114111, 0, 0, -1114110, 0, 0, -1114108, 0, 0, -1114107, 0, 0, -1114106, 0, 0, -1114105, 0, 0, -1114104, 0, 0, -1114103, 0, 0, -1114102, 0, 0, -1114101, 0, 0, -1114100, 0, 0, -1114099, 0, 0, -1114098, 0, 0, -1114097, 0, 0, -1114096, 0, 0, -1114095, 0, 0, -1114093, 0, 0, -983051, 0, 0, -983050, 0, 0, -983049, 0, 0, -983048, 0, 0, -983047, 0, 0, -983046, 0, 0, -983045, 0, 0, -983044, 0, 0, -983043, 0, 0, -983042, 0, 0, -983041, 0, 0, -1048576, 0, 0, -1048575, 0, 0, -1048574, 0, 0, -1048573, 0, 0, -1048570, 0, 0, -1048569, 0, 0, -1048568, 0, 0, -1048567, 0, 0, -1048566, 0, 0, -1048565, 0, 0, -1048564, 0, 0, -1048563, 0, 0, -1048562, 0, 0, -1048561, 0, 0, -1048560, 0, 0, -1048559, 0, 0, -1048558, 0, 0, -1048556, 0, 0, -917516, 0, 0, -917515, 0, 0, -917514, 0, 0, -917513, 0, 0, -917512, 0, 0, -917511, 0, 0, -917510, 0, 0, -917509, 0, 0, -917508, 0, 0, -917507, 0, 0, -917506, 0, 0, -917505, 0, 0, -983040, 0, 0, -983038, 0, 0, -983030, 0, 0, -983029, 0, 0, -983028, 0, 0, -983027, 0, 0, -983026, 0, 0, -983025, 0, 0, -983024, 0, 0, -983023, 0, 0, -983022, 0, 0, -983021, 0, 0, -983019, 0, 0, -851980, 0, 0, -851979, 0, 0, -851978, 0, 0, -851977, 0, 0, -851976, 0, 0, -851975, 0, 0, -851974, 0, 0, -851973, 0, 0, -851972, 0, 0, -917491, 0, 0, -917490, 0, 0, -917489, 0, 0, -917488, 0, 0, -917487, 0, 0, -917486, 0, 0, -917485, 0, 0, -917484, 0, 0, -917483, 0, 0, -917482, 0, 0, -786445, 0, 0, -786444, 0, 0, -786443, 0, 0, -786442, 0, 0, -786441, 0, 0, -786440, 0, 0, -786439, 0, 0, -786438, 0, 0, -851954, 0, 0, -851953, 0, 0, -851952, 0, 0, -851951, 0, 0, -851950, 0, 0, -851949, 0, 0, -851948, 0, 0, -851946, 0, 0, -851945, 0, 0, -720910, 0, 0, -720909, 0, 0, -720908, 0, 0, -720907, 0, 0, -720906, 0, 0, -720905, 0, 0, -720904, 0, 0, -786417, 0, 0, -786416, 0, 0, -786415, 0, 0, -786414, 0, 0, -786413, 0, 0, -786412, 0, 0, -786411, 0, 0, -786410, 0, 0, -786409, 0, 0, -655375, 0, 0, -655374, 0, 0, -655373, 0, 0, -655372, 0, 0, -655371, 0, 0, -655370, 0, 0, -720880, 0, 0, -720879, 0, 0, -720878, 0, 0, -720877, 0, 0, -720876, 0, 0, -720875, 0, 0, -720874, 0, 0, -720873, 0, 0, -720872, 0, 0, -589841, 0, 0, -589840, 0, 0, -589839, 0, 0, -589838, 0, 0, -589837, 0, 0, -589836, 0, 0, -589835, 0, 0, -655343, 0, 0, -655342, 0, 0, -655341, 0, 0, -655340, 0, 0, -655339, 0, 0, -655338, 0, 0, -655337, 0, 0, -655336, 0, 0, -655335, 0, 0, -524306, 0, 0, -524304, 0, 0, -524303, 0, 0, -524302, 0, 0, -524301, 0, 0, -524300, 0, 0, -589806, 0, 0, -589805, 0, 0, -589804, 0, 0, -589803, 0, 0, -589802, 0, 0, -589801, 0, 0, -589800, 0, 0, -589799, 0, 0, -458771, 0, 0, -458770, 0, 0, -458769, 0, 0, -458768, 0, 0, -458767, 0, 0, -458766, 0, 0, -458765, 0, 0, -524269, 0, 0, -524268, 0, 0, -524267, 0, 0, -524266, 0, 0, -524265, 0, 0, -524264, 0, 0, -524263, 0, 0, -524262, 0, 0, -393235, 0, 0, -393234, 0, 0, -393233, 0, 0, -393232, 0, 0, -393231, 0, 0, -393230, 0, 0, -458732, 0, 0, -458731, 0, 0, -458730, 0, 0, -458729, 0, 0, -458728, 0, 0, -458727, 0, 0, -458726, 0, 0, -327700, 0, 0, -327699, 0, 0, -327698, 0, 0, -327697, 0, 0, -327696, 0, 0, -327695, 0, 0, -393196, 0, 0, -393195, 0, 0, -393194, 0, 0, -393193, 0, 0, -393192, 0, 0, -393191, 0, 0, -393190, 0, 0, -262165, 0, 0, -262164, 0, 0, -262163, 0, 0, -262162, 0, 0, -262161, 0, 0, -262160, 0, 0, -327660, 0, 0, -327659, 0, 0, -327658, 0, 0, -327656, 0, 0, -327655, 0, 0, -327654, 0, 0, -196630, 0, 0, -196629, 0, 0, -196628, 0, 0, -196627, 0, 0, -196626, 0, 0, -196625, 0, 0, -262124, 0, 0, -262123, 0, 0, -262122, 0, 0, -262121, 0, 0, -262120, 0, 0, -262119, 0, 0, -262118, 0, 0, -131094, 0, 0, -131093, 0, 0, -131092, 0, 0, -131091, 0, 0, -131090, 0, 0, -131089, 0, 0, -196588, 0, 0, -196587, 0, 0, -196586, 0, 0, -196585, 0, 0, -196584, 0, 0, -196583, 0, 0, -196582, 0, 0, -65558, 0, 0, -65557, 0, 0, -65556, 0, 0, -65555, 0, 0, -65554, 0, 0, -65553, 0, 0, -131052, 0, 0, -131051, 0, 0, -131050, 0, 0, -131049, 0, 0, -131048, 0, 0, -131047, 0, 0, -131046, 0, 0, -22, 0, 0, -21, 0, 0, -20, 0, 0, -19, 0, 0, -18, 0, 0, -17, 0, 0, -65516, 0, 0, -65515, 0, 0, -65514, 0, 0, -65513, 0, 0, -65512, 0, 0, -65511, 0, 0, -65510, 0, 0, -65509, 0, 0, 65514, 0, 0, 65515, 0, 0, 65516, 0, 0, 65517, 0, 0, 65518, 0, 0, 65519, 0, 0, 20, 0, 0, 21, 0, 0, 22, 0, 0, 23, 0, 0, 24, 0, 0, 25, 0, 0, 26, 0, 0, 27, 0, 0, 131050, 0, 0, 131051, 0, 0, 131052, 0, 0, 131053, 0, 0, 131054, 0, 0, 131055, 0, 0, 65556, 0, 0, 65557, 0, 0, 65558, 0, 0, 65559, 0, 0, 65560, 0, 0, 65561, 0, 0, 65562, 0, 0, 65563, 0, 0, 65564, 0, 0, 196586, 0, 0, 196587, 0, 0, 196588, 0, 0, 196589, 0, 0, 196590, 0, 0, 196591, 0, 0, 131092, 0, 0, 131093, 0, 0, 131094, 0, 0, 131095, 0, 0, 131096, 0, 0, 131097, 0, 0, 131098, 0, 0, 131099, 0, 0, 131100, 0, 0, 262122, 0, 0, 262123, 0, 0, 262124, 0, 0, 262125, 0, 0, 262126, 0, 0, 262127, 0, 0, 196628, 0, 0, 196629, 0, 0, 196630, 0, 0, 196631, 0, 0, 196632, 0, 0, 196633, 0, 0, 196634, 0, 0, 196635, 0, 0, 327658, 0, 0, 327659, 0, 0, 327660, 0, 0, 327661, 0, 0, 327662, 0, 0, 327663, 0, 0, 262163, 0, 0, 262164, 0, 0, 262165, 0, 0, 262166, 0, 0, 262167, 0, 0, 262168, 0, 0, 262169, 0, 0, 262170, 0, 0, 262171, 0, 0, 393194, 0, 0, 393195, 0, 0, 393196, 0, 0, 393197, 0, 0, 393198, 0, 0, 393199, 0, 0, 327699, 0, 0, 327700, 0, 0, 327701, 0, 0, 327702, 0, 0, 327703, 0, 0, 327704, 0, 0, 327705, 0, 0, 327706, 0, 0, 327707, 0, 0, 458730, 0, 0, 458731, 0, 0, 458732, 0, 0, 458733, 0, 0, 458734, 0, 0, 458735, 0, 0, 458736, 0, 0, 393235, 0, 0, 393236, 0, 0, 393237, 0, 0, 393238, 0, 0, 393239, 0, 0, 393240, 0, 0, 393241, 0, 0, 393242, 0, 0, 393243, 0, 0, 524266, 0, 0, 524267, 0, 0, 524268, 0, 0, 524269, 0, 0, 524270, 0, 0, 524271, 0, 0, 524272, 0, 0, 458770, 0, 0, 458771, 0, 0, 458772, 0, 0, 458773, 0, 0, 458774, 0, 0, 458775, 0, 0, 458776, 0, 0, 458777, 0, 0, 458778, 0, 0, 458779, 0, 0, 589803, 0, 0, 589804, 0, 0, 589805, 0, 0, 589806, 0, 0, 589807, 0, 0, 589808, 0, 0, 589809, 0, 0, 524305, 0, 0, 524306, 0, 0, 524307, 0, 0, 524308, 0, 0, 524309, 0, 0, 524310, 0, 0, 524311, 0, 0, 524312, 0, 0, 524313, 0, 0, 524314, 0, 0, 524315, 0, 0, 655338, 0, 0, 655339, 0, 0, 655340, 0, 0, 655341, 0, 0, 655343, 0, 0, 655344, 0, 0, 655345, 0, 0, 589840, 0, 0, 589841, 0, 0, 589842, 0, 0, 589843, 0, 0, 589844, 0, 0, 589845, 0, 0, 589846, 0, 0, 589847, 0, 0, 589848, 0, 0, 589849, 0, 0, 589850, 0, 0, 589851, 0, 0, 720875, 0, 0, 720876, 0, 0, 720877, 0, 0, 720878, 0, 0, 720879, 0, 0, 720880, 0, 0, 720881, 0, 0, 655375, 0, 0, 655376, 0, 0, 655377, 0, 0, 655378, 0, 0, 655379, 0, 0, 655380, 0, 0, 655381, 0, 0, 655382, 0, 0, 655383, 0, 0, 655384, 0, 0, 655385, 0, 0, 786411, 0, 0, 786412, 0, 0, 786413, 0, 0, 786414, 0, 0, 786415, 0, 0, 786417, 0, 0, 786418, 0, 0, 720910, 0, 0, 720911, 0, 0, 720912, 0, 0, 720913, 0, 0, 720914, 0, 0, 720915, 0, 0, 720916, 0, 0, 720917, 0, 0, 720918, 0, 0, 720919, 0, 0, 720920, 0, 0, 851947, 0, 0, 851948, 0, 0, 851949, 0, 0, 851950, 0, 0, 851951, 0, 0, 851952, 0, 0, 851953, 0, 0, 851954, 0, 0, 851955, 0, 0, 851956, 0, 0, 786445, 0, 0, 786446, 0, 0, 786447, 0, 0, 786448, 0, 0, 786449, 0, 0, 786450, 0, 0, 786451, 0, 0, 786452, 0, 0, 786453, 0, 0, 786454, 0, 0, 786455, 0, 0, 917484, 0, 0, 917486, 0, 0, 917487, 0, 0, 917489, 0, 0, 917490, 0, 0, 917491, 0, 0, 917492, 0, 0, 917493, 0, 0, 917494, 0, 0, 917495, 0, 0, 917496, 0, 0, 917498, 0, 0, 917499, 0, 0, 917500, 0, 0, 851980, 0, 0, 851981, 0, 0, 851982, 0, 0, 851983, 0, 0, 851984, 0, 0, 851985, 0, 0, 851986, 0, 0, 851987, 0, 0, 851988, 0, 0, 851989, 0, 0, 851990, 0, 0, 983023, 0, 0, 983024, 0, 0, 983026, 0, 0, 983027, 0, 0, 983028, 0, 0, 983029, 0, 0, 983030, 0, 0, 983031, 0, 0, 983032, 0, 0, 983033, 0, 0, 983034, 0, 0, 983035, 0, 0, 983036, 0, 0, 983037, 0, 0, 917515, 0, 0, 917516, 0, 0, 917517, 0, 0, 917518, 0, 0, 917519, 0, 0, 917520, 0, 0, 917521, 0, 0, 917522, 0, 0, 917523, 0, 0, 917524, 0, 0, 917525, 0, 0, 1048560, 0, 0, 1048561, 0, 0, 1048562, 0, 0, 1048563, 0, 0, 1048564, 0, 0, 1048565, 0, 0, 1048566, 0, 0, 1048567, 0, 0, 1048568, 0, 0, 1048569, 0, 0, 1048570, 0, 0, 1048571, 0, 0, 1048573, 0, 0, 1048574, 0, 0, 1048575, 0, 0, 983049, 0, 0, 983050, 0, 0, 983052, 0, 0, 983053, 0, 0, 983054, 0, 0, 983055, 0, 0, 983056, 0, 0, 983057, 0, 0, 983058, 0, 0, 983059, 0, 0, 983060, 0, 0, 1114097, 0, 0, 1114098, 0, 0, 1114099, 0, 0, 1114100, 0, 0, 1114101, 0, 0, 1114102, 0, 0, 1114103, 0, 0, 1114104, 0, 0, 1114105, 0, 0, 1114106, 0, 0, 1114107, 0, 0, 1114108, 0, 0, 1114109, 0, 0, 1114110, 0, 0, 1114111, 0, 0, 1048576, 0, 0, 1048577, 0, 0, 1048578, 0, 0, 1048579, 0, 0, 1048580, 0, 0, 1048581, 0, 0, 1048582, 0, 0, 1048583, 0, 0, 1048584, 0, 0, 1048585, 0, 0, 1048586, 0, 0, 1048587, 0, 0, 1048588, 0, 0, 1048589, 0, 0, 1048590, 0, 0, 1048591, 0, 0, 1048592, 0, 0, 1048593, 0, 0, 1048594, 0, 0, 1179633, 0, 0, 1179634, 0, 0, 1179635, 0, 0, 1179636, 0, 0, 1179637, 0, 0, 1179638, 0, 0, 1179639, 0, 0, 1179641, 0, 0, 1179642, 0, 0, 1179643, 0, 0, 1179644, 0, 0, 1179645, 0, 0, 1179646, 0, 0, 1179647, 0, 0, 1114112, 0, 0, 1114113, 0, 0, 1114114, 0, 0, 1114115, 0, 0, 1114116, 0, 0, 1114117, 0, 0, 1114118, 0, 0, 1114119, 0, 0, 1114120, 0, 0, 1114121, 0, 0, 1114122, 0, 0, 1114123, 0, 0, 1114124, 0, 0, 1114125, 0, 0, 1114126, 0, 0, 1114127, 0, 0, 1114128, 0, 0, 1114129, 0, 0, 1114130, 0, 0, 1245171, 0, 0, 1245172, 0, 0, 1245173, 0, 0, 1245174, 0, 0, 1245175, 0, 0, 1245176, 0, 0, 1245177, 0, 0, 1245178, 0, 0, 1245179, 0, 0, 1245180, 0, 0, 1245181, 0, 0, 1245182, 0, 0, 1245183, 0, 0, 1179648, 0, 0, 1179649, 0, 0, 1179650, 0, 0, 1179651, 0, 0, 1179652, 0, 0, 1179653, 0, 0, 1179654, 0, 0, 1179655, 0, 0, 1179656, 0, 0, 1179657, 0, 0, 1179658, 0, 0, 1179659, 0, 0, 1179660, 0, 0, 1179661, 0, 0, 1179662, 0, 0, 1179663, 0, 0, 1179664, 0, 0, 1179665, 0, 0, 1179666, 0, 0, 1310708, 0, 0, 1310709, 0, 0, 1310710, 0, 0, 1310711, 0, 0, 1310712, 0, 0, 1310713, 0, 0, 1310714, 0, 0, 1310715, 0, 0, 1310716, 0, 0, 1310717, 0, 0, 1310719, 0, 0, 1245184, 0, 0, 1245185, 0, 0, 1245186, 0, 0, 1245187, 0, 0, 1245188, 0, 0, 1245189, 0, 0, 1245190, 0, 0, 1245191, 0, 0, 1245192, 0, 0, 1245193, 0, 0, 1245194, 0, 0, 1245195, 0, 0, 1245196, 0, 0, 1245197, 0, 0, 1245198, 0, 0, 1245199, 0, 0, 1245200, 0, 0, 1245201, 0, 0, 1376246, 0, 0, 1376247, 0, 0, 1376248, 0, 0, 1376249, 0, 0, 1376250, 0, 0, 1376251, 0, 0, 1376252, 0, 0, 1376253, 0, 0, 1376254, 0, 0, 1376255, 0, 0, 1310720, 0, 0, 1310721, 0, 0, 1310722, 0, 0, 1310723, 0, 0, 1310724, 0, 0, 1310725, 0, 0, 1310726, 0, 0, 1310727, 0, 0, 1310728, 0, 0, 1310729, 0, 0, 1310730, 0, 0, 1310731, 0, 0, 1310733, 0, 0, 1310734, 0, 0, 1310735, 0, 0, 1310736, 0, 0, 1441783, 0, 0, 1441784, 0, 0, 1441786, 0, 0, 1441787, 0, 0, 1441788, 0, 0, 1441789, 0, 0, 1441790, 0, 0, 1441791, 0, 0, 1376256, 0, 0, 1376257, 0, 0, 1376258, 0, 0, 1376259, 0, 0, 1376260, 0, 0, 1376261, 0, 0, 1376263, 0, 0, 1376264, 0, 0, 1376265, 0, 0, 1376266, 0, 0, 1376267, 0, 0, 1376268, 0, 0, 1376269, 0, 0, 1376270, 0, 0, 1376271, 0, 0, 1507319, 0, 0, 1507320, 0, 0, 1507321, 0, 0, 1507322, 0, 0, 1507323, 0, 0, 1507324, 0, 0, 1507325, 0, 0, 1507326, 0, 0, 1507327, 0, 0, 1441792, 0, 0, 1441793, 0, 0, 1441794, 0, 0, 1441795, 0, 0, 1441797, 0, 0, 1441798, 0, 0, 1441799, 0, 0, 1441800, 0, 0, 1441801, 0, 0, 1441802, 0, 0, 1441803, 0, 0, 1441804, 0, 0, 1572855, 0, 0, 1572856, 0, 0, 1572858, 0, 0, 1572861, 0, 0, 1572862, 0, 0, 1572863, 0, 0, 1507328, 0, 0, 1507329, 0, 0, 1507330, 0, 0, 1507331, 0, 0, 1507332, 0, 0, 1507333, 0, 0, 1507335, 0, 0, 1507336, 0, 0, 1507339, 0, 0, 1638393, 0, 0, 1638394, 0, 0, 1638399, 0, 0, 1572864, 0, 0, 1572865, 0, 0, 1572866, 0, 0, 1572867, 0, 0, 1572868, 0, 0, 1572869, 0, 0, 1572870, 0, 0, 1703929, 0, 0, 1703935, 0, 0, 1638400, 0, 0, 1638401, 0, 0 )
+[node name="obsidian154" parent="YSort" instance=ExtResource( 1 )]
+position = Vector2( 240, -155 )
+
+[node name="obsidian155" parent="YSort" instance=ExtResource( 1 )]
+position = Vector2( 368, -64 )
+
+[node name="obsidian156" parent="YSort" instance=ExtResource( 1 )]
+position = Vector2( 336, -64 )
+
+[node name="obsidian157" parent="YSort" instance=ExtResource( 1 )]
+position = Vector2( 304, -96 )
+
+[node name="obsidian158" parent="YSort" instance=ExtResource( 1 )]
+position = Vector2( 272, -128 )
+
+[node name="obsidian151" parent="YSort" instance=ExtResource( 1 )]
+position = Vector2( 288, -112 )
+
+[node name="obsidian152" parent="YSort" instance=ExtResource( 1 )]
+position = Vector2( 224, -176 )
+
+[node name="obsidian153" parent="YSort" instance=ExtResource( 1 )]
+position = Vector2( 208, -197 )
+
+[node name="obsidian46" parent="YSort" instance=ExtResource( 1 )]
+position = Vector2( 768, 1 )
+
+[node name="obsidian163" parent="YSort" instance=ExtResource( 1 )]
+position = Vector2( 736, -5 )
+
+[node name="obsidian164" parent="YSort" instance=ExtResource( 1 )]
+position = Vector2( 704, -10 )
+
+[node name="obsidian165" parent="YSort" instance=ExtResource( 1 )]
+position = Vector2( 672, -14 )
+
+[node name="obsidian166" parent="YSort" instance=ExtResource( 1 )]
+position = Vector2( 608, -10 )
+
+[node name="obsidian167" parent="YSort" instance=ExtResource( 1 )]
+position = Vector2( 576, -14 )
+
+[node name="obsidian168" parent="YSort" instance=ExtResource( 1 )]
+position = Vector2( 544, -25 )
+
+[node name="obsidian47" parent="YSort" instance=ExtResource( 1 )]
+position = Vector2( 352, 512 )
+
+[node name="obsidian234" parent="YSort" instance=ExtResource( 1 )]
+position = Vector2( 224, 487 )
+
+[node name="obsidian235" parent="YSort" instance=ExtResource( 1 )]
+position = Vector2( 256, 498 )
+
+[node name="obsidian236" parent="YSort" instance=ExtResource( 1 )]
+position = Vector2( 288, 502 )
+
+[node name="obsidian237" parent="YSort" instance=ExtResource( 1 )]
+position = Vector2( 208, 475 )
+
+[node name="obsidian238" parent="YSort" instance=ExtResource( 1 )]
+position = Vector2( 384, 518 )
+
+[node name="obsidian239" parent="YSort" instance=ExtResource( 1 )]
+position = Vector2( 400, 529 )
+
+[node name="obsidian240" parent="YSort" instance=ExtResource( 1 )]
+position = Vector2( 432, 540 )
+
+[node name="obsidian241" parent="YSort" instance=ExtResource( 1 )]
+position = Vector2( 464, 544 )
+
+[node name="obsidian242" parent="YSort" instance=ExtResource( 1 )]
+position = Vector2( 496, 551 )
+
+[node name="obsidian243" parent="YSort" instance=ExtResource( 1 )]
+position = Vector2( 528, 551 )
+
+[node name="obsidian244" parent="YSort" instance=ExtResource( 1 )]
+position = Vector2( 560, 551 )
+
+[node name="obsidian48" parent="YSort" instance=ExtResource( 1 )]
+position = Vector2( 96, 455 )
+
+[node name="obsidian245" parent="YSort" instance=ExtResource( 1 )]
+position = Vector2( -32, 453 )
+
+[node name="obsidian246" parent="YSort" instance=ExtResource( 1 )]
+position = Vector2( 0, 456 )
+
+[node name="obsidian247" parent="YSort" instance=ExtResource( 1 )]
+position = Vector2( 32, 455 )
+
+[node name="obsidian248" parent="YSort" instance=ExtResource( 1 )]
+position = Vector2( 64, 454 )
+
+[node name="obsidian249" parent="YSort" instance=ExtResource( 1 )]
+position = Vector2( 112, 469 )
+
+[node name="obsidian250" parent="YSort" instance=ExtResource( 1 )]
+position = Vector2( 144, 469 )
+
+[node name="obsidian251" parent="YSort" instance=ExtResource( 1 )]
+position = Vector2( 176, 470 )
+
+[node name="obsidian252" parent="YSort" instance=ExtResource( 1 )]
+position = Vector2( 320, 501 )
+
+[node name="obsidian49" parent="YSort" instance=ExtResource( 1 )]
+position = Vector2( -176, 416 )
+
+[node name="obsidian253" parent="YSort" instance=ExtResource( 1 )]
+position = Vector2( -208, 413 )
+
+[node name="obsidian254" parent="YSort" instance=ExtResource( 1 )]
+position = Vector2( -224, 402 )
+
+[node name="obsidian255" parent="YSort" instance=ExtResource( 1 )]
+position = Vector2( -144, 414 )
+
+[node name="obsidian257" parent="YSort" instance=ExtResource( 1 )]
+position = Vector2( -80, 437 )
+
+[node name="obsidian258" parent="YSort" instance=ExtResource( 1 )]
+position = Vector2( -96, 426 )
+
+[node name="obsidian259" parent="YSort" instance=ExtResource( 1 )]
+position = Vector2( -112, 413 )
+
+[node name="obsidian256" parent="YSort" instance=ExtResource( 1 )]
+position = Vector2( -64, 454 )
+
+[node name="obsidian50" parent="YSort" instance=ExtResource( 1 )]
+position = Vector2( -240, 390 )
+
+[node name="obsidian267" parent="YSort" instance=ExtResource( 1 )]
+position = Vector2( -240, 390 )
+
+[node name="obsidian268" parent="YSort" instance=ExtResource( 1 )]
+position = Vector2( -240, 390 )
+
+[node name="obsidian269" parent="YSort" instance=ExtResource( 1 )]
+position = Vector2( -272, 383 )
+
+[node name="obsidian270" parent="YSort" instance=ExtResource( 1 )]
+position = Vector2( -304, 372 )
+
+[node name="obsidian271" parent="YSort" instance=ExtResource( 1 )]
+position = Vector2( -320, 358 )
+
+[node name="obsidian272" parent="YSort" instance=ExtResource( 1 )]
+position = Vector2( -336, 347 )
+
+[node name="obsidian273" parent="YSort" instance=ExtResource( 1 )]
+position = Vector2( -352, 331 )
+
+[node name="obsidian51" parent="YSort" instance=ExtResource( 1 )]
+position = Vector2( -400, 304 )
+
+[node name="obsidian260" parent="YSort" instance=ExtResource( 1 )]
+position = Vector2( -384, 320 )
+
+[node name="obsidian261" parent="YSort" instance=ExtResource( 1 )]
+position = Vector2( -416, 288 )
+
+[node name="obsidian262" parent="YSort" instance=ExtResource( 1 )]
+position = Vector2( -432, 272 )
+
+[node name="obsidian263" parent="YSort" instance=ExtResource( 1 )]
+position = Vector2( -448, 251 )
+
+[node name="obsidian264" parent="YSort" instance=ExtResource( 1 )]
+position = Vector2( -464, 230 )
+
+[node name="obsidian265" parent="YSort" instance=ExtResource( 1 )]
+position = Vector2( -464, 208 )
+
+[node name="obsidian266" parent="YSort" instance=ExtResource( 1 )]
+position = Vector2( -480, 187 )
+
+[node name="obsidian52" parent="YSort" instance=ExtResource( 1 )]
+position = Vector2( 592, 544 )
+
+[node name="obsidian223" parent="YSort" instance=ExtResource( 1 )]
+position = Vector2( 592, 544 )
+
+[node name="obsidian224" parent="YSort" instance=ExtResource( 1 )]
+position = Vector2( 592, 544 )
+
+[node name="obsidian225" parent="YSort" instance=ExtResource( 1 )]
+position = Vector2( 592, 544 )
+
+[node name="obsidian226" parent="YSort" instance=ExtResource( 1 )]
+position = Vector2( 624, 544 )
+
+[node name="obsidian227" parent="YSort" instance=ExtResource( 1 )]
+position = Vector2( 656, 540 )
+
+[node name="obsidian228" parent="YSort" instance=ExtResource( 1 )]
+position = Vector2( 688, 529 )
+
+[node name="obsidian229" parent="YSort" instance=ExtResource( 1 )]
+position = Vector2( 720, 518 )
+
+[node name="obsidian230" parent="YSort" instance=ExtResource( 1 )]
+position = Vector2( 736, 507 )
+
+[node name="obsidian231" parent="YSort" instance=ExtResource( 1 )]
+position = Vector2( 752, 496 )
+
+[node name="obsidian232" parent="YSort" instance=ExtResource( 1 )]
+position = Vector2( 768, 469 )
+
+[node name="obsidian233" parent="YSort" instance=ExtResource( 1 )]
+position = Vector2( 784, 454 )
+
+[node name="obsidian53" parent="YSort" instance=ExtResource( 1 )]
+position = Vector2( -512, 160 )
+
+[node name="obsidian54" parent="YSort" instance=ExtResource( 1 )]
+position = Vector2( 960, 369 )
+
+[node name="obsidian55" parent="YSort" instance=ExtResource( 1 )]
+position = Vector2( 800, 6 )
+
+[node name="obsidian169" parent="YSort" instance=ExtResource( 1 )]
+position = Vector2( 832, 12 )
+
+[node name="obsidian170" parent="YSort" instance=ExtResource( 1 )]
+position = Vector2( 640, -14 )
+
+[node name="obsidian56" parent="YSort" instance=ExtResource( 1 )]
+position = Vector2( 800, 443 )
+
+[node name="obsidian216" parent="YSort" instance=ExtResource( 1 )]
+position = Vector2( 816, 432 )
+
+[node name="obsidian217" parent="YSort" instance=ExtResource( 1 )]
+position = Vector2( 832, 421 )
+
+[node name="obsidian218" parent="YSort" instance=ExtResource( 1 )]
+position = Vector2( 864, 417 )
+
+[node name="obsidian219" parent="YSort" instance=ExtResource( 1 )]
+position = Vector2( 880, 402 )
+
+[node name="obsidian220" parent="YSort" instance=ExtResource( 1 )]
+position = Vector2( 896, 391 )
+
+[node name="obsidian221" parent="YSort" instance=ExtResource( 1 )]
+position = Vector2( 928, 391 )
+
+[node name="obsidian222" parent="YSort" instance=ExtResource( 1 )]
+position = Vector2( 944, 380 )
+
+[node name="obsidian57" parent="YSort" instance=ExtResource( 1 )]
+position = Vector2( -560, -32 )
+
+[node name="obsidian58" parent="YSort" instance=ExtResource( 1 )]
+position = Vector2( -560, -54 )
+
+[node name="obsidian103" parent="YSort" instance=ExtResource( 1 )]
+position = Vector2( -544, -10 )
+
+[node name="obsidian104" parent="YSort" instance=ExtResource( 1 )]
+position = Vector2( -528, 16 )
+
+[node name="obsidian106" parent="YSort" instance=ExtResource( 1 )]
+position = Vector2( -496, 176 )
+
+[node name="obsidian107" parent="YSort" instance=ExtResource( 1 )]
+position = Vector2( -512, 128 )
+
+[node name="obsidian117" parent="YSort" instance=ExtResource( 1 )]
+position = Vector2( -528, 96 )
+
+[node name="obsidian118" parent="YSort" instance=ExtResource( 1 )]
+position = Vector2( -528, 64 )
+
+[node name="obsidian119" parent="YSort" instance=ExtResource( 1 )]
+position = Vector2( -528, 48 )
+
+[node name="obsidian105" parent="YSort" instance=ExtResource( 1 )]
+position = Vector2( -560, -80 )
+
+[node name="obsidian59" parent="YSort" instance=ExtResource( 1 )]
+position = Vector2( -304, -474 )
+
+[node name="obsidian60" parent="YSort" instance=ExtResource( 1 )]
+position = Vector2( -320, -469 )
+
+[node name="obsidian61" parent="YSort" instance=ExtResource( 1 )]
+position = Vector2( -352, -442 )
+
+[node name="obsidian62" parent="YSort" instance=ExtResource( 1 )]
+position = Vector2( -336, -458 )
+
+[node name="obsidian64" parent="YSort" instance=ExtResource( 1 )]
+position = Vector2( -288, -485 )
+
+[node name="obsidian65" parent="YSort" instance=ExtResource( 1 )]
+position = Vector2( -224, -500 )
+
+[node name="obsidian68" parent="YSort" instance=ExtResource( 1 )]
+position = Vector2( -368, -432 )
+
+[node name="obsidian69" parent="YSort" instance=ExtResource( 1 )]
+position = Vector2( -240, -489 )
+
+[node name="obsidian70" parent="YSort" instance=ExtResource( 1 )]
+position = Vector2( -272, -489 )
+
+[node name="obsidian66" parent="YSort" instance=ExtResource( 1 )]
+position = Vector2( -192, -506 )
+
+[node name="obsidian67" parent="YSort" instance=ExtResource( 1 )]
+position = Vector2( -176, -512 )
+
+[node name="obsidian63" parent="YSort" instance=ExtResource( 1 )]
+position = Vector2( -512, -335 )
+
+[node name="obsidian71" parent="YSort" instance=ExtResource( 1 )]
+position = Vector2( -512, -314 )
+
+[node name="obsidian72" parent="YSort" instance=ExtResource( 1 )]
+position = Vector2( -560, -101 )
+
+[node name="obsidian73" parent="YSort" instance=ExtResource( 1 )]
+position = Vector2( -560, -128 )
+
+[node name="obsidian74" parent="YSort" instance=ExtResource( 1 )]
+position = Vector2( -560, -149 )
+
+[node name="obsidian75" parent="YSort" instance=ExtResource( 1 )]
+position = Vector2( -560, -176 )
+
+[node name="obsidian76" parent="YSort" instance=ExtResource( 1 )]
+position = Vector2( -528, -298 )
+
+[node name="obsidian77" parent="YSort" instance=ExtResource( 1 )]
+position = Vector2( -560, -229 )
+
+[node name="obsidian78" parent="YSort" instance=ExtResource( 1 )]
+position = Vector2( -560, -256 )
+
+[node name="obsidian101" parent="YSort" instance=ExtResource( 1 )]
+position = Vector2( -544, -276 )
+
+[node name="obsidian102" parent="YSort" instance=ExtResource( 1 )]
+position = Vector2( -560, -208 )
+
+[node name="obsidian79" parent="YSort" instance=ExtResource( 1 )]
+position = Vector2( -416, -415 )
+
+[node name="obsidian89" parent="YSort" instance=ExtResource( 1 )]
+position = Vector2( -432, -400 )
+
+[node name="obsidian91" parent="YSort" instance=ExtResource( 1 )]
+position = Vector2( -496, -346 )
+
+[node name="obsidian97" parent="YSort" instance=ExtResource( 1 )]
+position = Vector2( -480, -357 )
+
+[node name="obsidian98" parent="YSort" instance=ExtResource( 1 )]
+position = Vector2( -464, -368 )
+
+[node name="obsidian100" parent="YSort" instance=ExtResource( 1 )]
+position = Vector2( -448, -389 )
+
+[node name="obsidian90" parent="YSort" instance=ExtResource( 1 )]
+position = Vector2( -384, -421 )
+
+[node name="obsidian80" parent="YSort" instance=ExtResource( 1 )]
+position = Vector2( 1120, -5 )
+
+[node name="obsidian181" parent="YSort" instance=ExtResource( 1 )]
+position = Vector2( 1280, 8 )
+
+[node name="obsidian182" parent="YSort" instance=ExtResource( 1 )]
+position = Vector2( 1152, -3 )
+
+[node name="obsidian183" parent="YSort" instance=ExtResource( 1 )]
+position = Vector2( 1168, -14 )
+
+[node name="obsidian171" parent="YSort" instance=ExtResource( 1 )]
+position = Vector2( 1200, -14 )
+
+[node name="obsidian172" parent="YSort" instance=ExtResource( 1 )]
+position = Vector2( 1232, -10 )
+
+[node name="obsidian173" parent="YSort" instance=ExtResource( 1 )]
+position = Vector2( 1088, -5 )
+
+[node name="obsidian174" parent="YSort" instance=ExtResource( 1 )]
+position = Vector2( 1056, -3 )
+
+[node name="obsidian175" parent="YSort" instance=ExtResource( 1 )]
+position = Vector2( 1024, 0 )
+
+[node name="obsidian176" parent="YSort" instance=ExtResource( 1 )]
+position = Vector2( 992, 0 )
+
+[node name="obsidian177" parent="YSort" instance=ExtResource( 1 )]
+position = Vector2( 960, 6 )
+
+[node name="obsidian178" parent="YSort" instance=ExtResource( 1 )]
+position = Vector2( 928, 12 )
+
+[node name="obsidian179" parent="YSort" instance=ExtResource( 1 )]
+position = Vector2( 896, 16 )
+
+[node name="obsidian180" parent="YSort" instance=ExtResource( 1 )]
+position = Vector2( 864, 21 )
+
+[node name="obsidian81" parent="YSort" instance=ExtResource( 1 )]
+position = Vector2( 1264, -5 )
+
+[node name="obsidian82" parent="YSort" instance=ExtResource( 1 )]
+position = Vector2( 1328, 208 )
+
+[node name="obsidian197" parent="YSort" instance=ExtResource( 1 )]
+position = Vector2( 1296, 208 )
+
+[node name="obsidian198" parent="YSort" instance=ExtResource( 1 )]
+position = Vector2( 1360, 213 )
+
+[node name="obsidian199" parent="YSort" instance=ExtResource( 1 )]
+position = Vector2( 1392, 214 )
+
+[node name="obsidian200" parent="YSort" instance=ExtResource( 1 )]
+position = Vector2( 1424, 214 )
+
+[node name="obsidian83" parent="YSort" instance=ExtResource( 1 )]
+position = Vector2( 1456, 80 )
+
+[node name="obsidian184" parent="YSort" instance=ExtResource( 1 )]
+position = Vector2( 1440, 59 )
+
+[node name="obsidian185" parent="YSort" instance=ExtResource( 1 )]
+position = Vector2( 1424, 43 )
+
+[node name="obsidian186" parent="YSort" instance=ExtResource( 1 )]
+position = Vector2( 1408, 22 )
+
+[node name="obsidian187" parent="YSort" instance=ExtResource( 1 )]
+position = Vector2( 1376, 16 )
+
+[node name="obsidian188" parent="YSort" instance=ExtResource( 1 )]
+position = Vector2( 1344, 19 )
+
+[node name="obsidian189" parent="YSort" instance=ExtResource( 1 )]
+position = Vector2( 1312, 11 )
+
+[node name="obsidian84" parent="YSort" instance=ExtResource( 1 )]
+position = Vector2( 1104, 256 )
+
+[node name="obsidian201" parent="YSort" instance=ExtResource( 1 )]
+position = Vector2( 1120, 240 )
+
+[node name="obsidian202" parent="YSort" instance=ExtResource( 1 )]
+position = Vector2( 976, 358 )
+
+[node name="obsidian203" parent="YSort" instance=ExtResource( 1 )]
+position = Vector2( 992, 347 )
+
+[node name="obsidian204" parent="YSort" instance=ExtResource( 1 )]
+position = Vector2( 1008, 336 )
+
+[node name="obsidian205" parent="YSort" instance=ExtResource( 1 )]
+position = Vector2( 1024, 326 )
+
+[node name="obsidian206" parent="YSort" instance=ExtResource( 1 )]
+position = Vector2( 1040, 315 )
+
+[node name="obsidian207" parent="YSort" instance=ExtResource( 1 )]
+position = Vector2( 1072, 288 )
+
+[node name="obsidian208" parent="YSort" instance=ExtResource( 1 )]
+position = Vector2( 1088, 272 )
+
+[node name="obsidian209" parent="YSort" instance=ExtResource( 1 )]
+position = Vector2( 1056, 304 )
+
+[node name="obsidian210" parent="YSort" instance=ExtResource( 1 )]
+position = Vector2( 1200, 208 )
+
+[node name="obsidian211" parent="YSort" instance=ExtResource( 1 )]
+position = Vector2( 1168, 208 )
+
+[node name="obsidian212" parent="YSort" instance=ExtResource( 1 )]
+position = Vector2( 1152, 213 )
+
+[node name="obsidian213" parent="YSort" instance=ExtResource( 1 )]
+position = Vector2( 1136, 225 )
+
+[node name="obsidian214" parent="YSort" instance=ExtResource( 1 )]
+position = Vector2( 1232, 208 )
+
+[node name="obsidian215" parent="YSort" instance=ExtResource( 1 )]
+position = Vector2( 1264, 208 )
+
+[node name="obsidian85" parent="YSort" instance=ExtResource( 1 )]
+position = Vector2( 1504, 165 )
+
+[node name="obsidian190" parent="YSort" instance=ExtResource( 1 )]
+position = Vector2( 1440, 208 )
+
+[node name="obsidian191" parent="YSort" instance=ExtResource( 1 )]
+position = Vector2( 1504, 145 )
+
+[node name="obsidian192" parent="YSort" instance=ExtResource( 1 )]
+position = Vector2( 1472, 187 )
+
+[node name="obsidian193" parent="YSort" instance=ExtResource( 1 )]
+position = Vector2( 1488, 176 )
+
+[node name="obsidian194" parent="YSort" instance=ExtResource( 1 )]
+position = Vector2( 1456, 198 )
+
+[node name="obsidian195" parent="YSort" instance=ExtResource( 1 )]
+position = Vector2( 1488, 118 )
+
+[node name="obsidian196" parent="YSort" instance=ExtResource( 1 )]
+position = Vector2( 1472, 96 )
+
+[node name="obsidian86" parent="YSort" instance=ExtResource( 1 )]
+position = Vector2( 448, -54 )
+
+[node name="obsidian159" parent="YSort" instance=ExtResource( 1 )]
+position = Vector2( 512, -36 )
+
+[node name="obsidian160" parent="YSort" instance=ExtResource( 1 )]
+position = Vector2( 480, -43 )
+
+[node name="obsidian161" parent="YSort" instance=ExtResource( 1 )]
+position = Vector2( 416, -48 )
+
+[node name="obsidian162" parent="YSort" instance=ExtResource( 1 )]
+position = Vector2( 384, -47 )
+
+[node name="obsidian87" parent="YSort" instance=ExtResource( 1 )]
+position = Vector2( 176, -240 )
+
+[node name="obsidian88" parent="YSort" instance=ExtResource( 1 )]
+position = Vector2( 320, -80 )
+
+[node name="obsidian92" parent="YSort" instance=ExtResource( 1 )]
+position = Vector2( 336, -219 )
+
+[node name="obsidian149" parent="YSort" instance=ExtResource( 1 )]
+position = Vector2( 192, -218 )
+
+[node name="obsidian150" parent="YSort" instance=ExtResource( 1 )]
+position = Vector2( 368, -223 )
+
+[node name="obsidian145" parent="YSort" instance=ExtResource( 1 )]
+position = Vector2( 304, -223 )
+
+[node name="obsidian146" parent="YSort" instance=ExtResource( 1 )]
+position = Vector2( 272, -229 )
+
+[node name="obsidian147" parent="YSort" instance=ExtResource( 1 )]
+position = Vector2( 240, -240 )
+
+[node name="obsidian148" parent="YSort" instance=ExtResource( 1 )]
+position = Vector2( 208, -240 )
+
+[node name="obsidian93" parent="YSort" instance=ExtResource( 1 )]
+position = Vector2( 608, -314 )
+
+[node name="obsidian94" parent="YSort" instance=ExtResource( 1 )]
+position = Vector2( 496, -223 )
+
+[node name="obsidian137" parent="YSort" instance=ExtResource( 1 )]
+position = Vector2( 400, -224 )
+
+[node name="obsidian138" parent="YSort" instance=ExtResource( 1 )]
+position = Vector2( 432, -224 )
+
+[node name="obsidian139" parent="YSort" instance=ExtResource( 1 )]
+position = Vector2( 464, -219 )
+
+[node name="obsidian140" parent="YSort" instance=ExtResource( 1 )]
+position = Vector2( 528, -224 )
+
+[node name="obsidian141" parent="YSort" instance=ExtResource( 1 )]
+position = Vector2( 544, -240 )
+
+[node name="obsidian142" parent="YSort" instance=ExtResource( 1 )]
+position = Vector2( 560, -256 )
+
+[node name="obsidian143" parent="YSort" instance=ExtResource( 1 )]
+position = Vector2( 576, -276 )
+
+[node name="obsidian144" parent="YSort" instance=ExtResource( 1 )]
+position = Vector2( 592, -298 )
+
+[node name="obsidian95" parent="YSort" instance=ExtResource( 1 )]
+position = Vector2( 496, -421 )
+
+[node name="obsidian96" parent="YSort" instance=ExtResource( 1 )]
+position = Vector2( 128, -516 )
+
+[node name="obsidian99" parent="YSort" instance=ExtResource( 1 )]
+position = Vector2( 320, -488 )
+
+[node name="obsidian120" parent="YSort" instance=ExtResource( 1 )]
+position = Vector2( 592, -335 )
+
+[node name="obsidian121" parent="YSort" instance=ExtResource( 1 )]
+position = Vector2( 576, -352 )
+
+[node name="obsidian122" parent="YSort" instance=ExtResource( 1 )]
+position = Vector2( 560, -367 )
+
+[node name="obsidian123" parent="YSort" instance=ExtResource( 1 )]
+position = Vector2( 544, -378 )
+
+[node name="obsidian124" parent="YSort" instance=ExtResource( 1 )]
+position = Vector2( 528, -400 )
+
+[node name="obsidian125" parent="YSort" instance=ExtResource( 1 )]
+position = Vector2( 512, -415 )
+
+[node name="obsidian126" parent="YSort" instance=ExtResource( 1 )]
+position = Vector2( 464, -432 )
+
+[node name="obsidian127" parent="YSort" instance=ExtResource( 1 )]
+position = Vector2( 448, -446 )
+
+[node name="obsidian128" parent="YSort" instance=ExtResource( 1 )]
+position = Vector2( 432, -457 )
+
+[node name="obsidian129" parent="YSort" instance=ExtResource( 1 )]
+position = Vector2( 416, -469 )
+
+[node name="obsidian130" parent="YSort" instance=ExtResource( 1 )]
+position = Vector2( 384, -478 )
+
+[node name="obsidian131" parent="YSort" instance=ExtResource( 1 )]
+position = Vector2( 352, -484 )
+
+[node name="obsidian132" parent="YSort" instance=ExtResource( 1 )]
+position = Vector2( 288, -495 )
+
+[node name="obsidian133" parent="YSort" instance=ExtResource( 1 )]
+position = Vector2( 256, -501 )
+
+[node name="obsidian134" parent="YSort" instance=ExtResource( 1 )]
+position = Vector2( 224, -506 )
+
+[node name="obsidian135" parent="YSort" instance=ExtResource( 1 )]
+position = Vector2( 192, -511 )
+
+[node name="obsidian136" parent="YSort" instance=ExtResource( 1 )]
+position = Vector2( 160, -512 )
+
+[node name="obsidian108" parent="YSort" instance=ExtResource( 1 )]
+position = Vector2( -160, -528 )
+
+[node name="obsidian109" parent="YSort" instance=ExtResource( 1 )]
+position = Vector2( -128, -528 )
+
+[node name="obsidian110" parent="YSort" instance=ExtResource( 1 )]
+position = Vector2( -96, -528 )
+
+[node name="obsidian111" parent="YSort" instance=ExtResource( 1 )]
+position = Vector2( 96, -517 )
+
+[node name="obsidian112" parent="YSort" instance=ExtResource( 1 )]
+position = Vector2( 64, -511 )
+
+[node name="obsidian113" parent="YSort" instance=ExtResource( 1 )]
+position = Vector2( 32, -516 )
+
+[node name="obsidian114" parent="YSort" instance=ExtResource( 1 )]
+position = Vector2( 0, -523 )
+
+[node name="obsidian115" parent="YSort" instance=ExtResource( 1 )]
+position = Vector2( -32, -522 )
+
+[node name="obsidian116" parent="YSort" instance=ExtResource( 1 )]
+position = Vector2( -64, -528 )
+
+[node name="obelisk" parent="YSort" instance=ExtResource( 2 )]
+position = Vector2( -304, -165 )
+
+[node name="obelisk2" parent="YSort" instance=ExtResource( 2 )]
+position = Vector2( -80, -410 )
+
+[node name="obelisk3" parent="YSort" instance=ExtResource( 2 )]
+position = Vector2( -304, -191 )
+
+[node name="obelisk4" parent="YSort" instance=ExtResource( 2 )]
+position = Vector2( -288, -207 )
+
+[node name="obelisk5" parent="YSort" instance=ExtResource( 2 )]
+position = Vector2( -272, -224 )
+
+[node name="obelisk6" parent="YSort" instance=ExtResource( 2 )]
+position = Vector2( -256, -240 )
+
+[node name="obelisk7" parent="YSort" instance=ExtResource( 2 )]
+position = Vector2( -240, -256 )
+
+[node name="obelisk8" parent="YSort" instance=ExtResource( 2 )]
+position = Vector2( -224, -276 )
+
+[node name="obelisk9" parent="YSort" instance=ExtResource( 2 )]
+position = Vector2( -192, -313 )
+
+[node name="obelisk10" parent="YSort" instance=ExtResource( 2 )]
+position = Vector2( -208, -293 )
+
+[node name="obelisk11" parent="YSort" instance=ExtResource( 2 )]
+position = Vector2( -176, -329 )
+
+[node name="obelisk12" parent="YSort" instance=ExtResource( 2 )]
+position = Vector2( -160, -346 )
+
+[node name="obelisk13" parent="YSort" instance=ExtResource( 2 )]
+position = Vector2( -144, -361 )
+
+[node name="obelisk14" parent="YSort" instance=ExtResource( 2 )]
+position = Vector2( -128, -372 )
+
+[node name="obelisk15" parent="YSort" instance=ExtResource( 2 )]
+position = Vector2( -112, -378 )
+
+[node name="obelisk16" parent="YSort" instance=ExtResource( 2 )]
+position = Vector2( -96, -395 )
+
+[node name="obelisk17" parent="YSort" instance=ExtResource( 2 )]
+position = Vector2( 176, -271 )
+
+[node name="obelisk18" parent="YSort" instance=ExtResource( 2 )]
+position = Vector2( 192, -256 )
+
+[node name="obelisk19" parent="YSort" instance=ExtResource( 2 )]
+position = Vector2( 192, -283 )
+
+[node name="obelisk20" parent="YSort" instance=ExtResource( 2 )]
+position = Vector2( 176, -304 )
+
+[node name="obelisk21" parent="YSort" instance=ExtResource( 2 )]
+position = Vector2( 160, -329 )
+
+[node name="obelisk22" parent="YSort" instance=ExtResource( 2 )]
+position = Vector2( 144, -352 )
+
+[node name="obelisk23" parent="YSort" instance=ExtResource( 2 )]
+position = Vector2( 144, -388 )
+
+[node name="obelisk24" parent="YSort" instance=ExtResource( 2 )]
+position = Vector2( 144, -409 )
+
+[node name="obelisk25" parent="YSort" instance=ExtResource( 2 )]
+position = Vector2( 128, -368 )
+
+[node name="obelisk26" parent="YSort" instance=ExtResource( 2 )]
+position = Vector2( 128, -435 )
+
+[node name="obelisk27" parent="YSort" instance=ExtResource( 2 )]
+position = Vector2( 144, -454 )
+
+[node name="obelisk28" parent="YSort" instance=ExtResource( 2 )]
+position = Vector2( 160, -474 )
+
+[node name="obelisk29" parent="YSort" instance=ExtResource( 2 )]
+position = Vector2( 176, -490 )
+
+[node name="obelisk30" parent="YSort" instance=ExtResource( 2 )]
+position = Vector2( 208, -488 )
+
+[node name="obelisk31" parent="YSort" instance=ExtResource( 2 )]
+position = Vector2( 240, -485 )
+
+[node name="obelisk32" parent="YSort" instance=ExtResource( 2 )]
+position = Vector2( 272, -473 )
+
+[node name="obelisk33" parent="YSort" instance=ExtResource( 2 )]
+position = Vector2( 560, -340 )
+
+[node name="obelisk34" parent="YSort" instance=ExtResource( 2 )]
+position = Vector2( 528, -352 )
+
+[node name="obelisk35" parent="YSort" instance=ExtResource( 2 )]
+position = Vector2( 512, -367 )
+
+[node name="obelisk36" parent="YSort" instance=ExtResource( 2 )]
+position = Vector2( 496, -393 )
+
+[node name="obelisk37" parent="YSort" instance=ExtResource( 2 )]
+position = Vector2( 304, -469 )
+
+[node name="obelisk38" parent="YSort" instance=ExtResource( 2 )]
+position = Vector2( 336, -463 )
+
+[node name="obelisk39" parent="YSort" instance=ExtResource( 2 )]
+position = Vector2( 368, -458 )
+
+[node name="obelisk40" parent="YSort" instance=ExtResource( 2 )]
+position = Vector2( 448, -411 )
+
+[node name="obelisk41" parent="YSort" instance=ExtResource( 2 )]
+position = Vector2( 480, -410 )
+
+[node name="obelisk42" parent="YSort" instance=ExtResource( 2 )]
+position = Vector2( 432, -431 )
+
+[node name="obelisk43" parent="YSort" instance=ExtResource( 2 )]
+position = Vector2( 416, -442 )
+
+[node name="obelisk44" parent="YSort" instance=ExtResource( 2 )]
+position = Vector2( 400, -458 )
+
+[node name="elemental" parent="YSort" instance=ExtResource( 3 )]
+position = Vector2( -80, -180 )
+elements = {
+"air": 12,
+"earth": 12,
+"fire": 12,
+"water": 20
+}
+
+[node name="ValidArea" parent="." instance=ExtResource( 4 )]
+visible = false
