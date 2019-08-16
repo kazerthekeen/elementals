@@ -58,6 +58,7 @@ anims/idle = SubResource( 3 )
 position = Vector2( 0, -18 )
 texture = ExtResource( 2 )
 hframes = 4
+frame = 1
 
 [node name="Area2D" type="Area2D" parent="."]
 
